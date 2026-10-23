@@ -8,13 +8,18 @@ import { fileURLToPath } from "node:url";
 import { resolveConfig } from "./config.mjs";
 import { updateReadme, galleryBlock, start, end } from "./readme.mjs";
 import { isPublicAddress, profileHtml } from "./capture.mjs";
-const raw = JSON.parse(await readFile(new URL("../../config/gallery.json", import.meta.url), "utf8"));
+// Fixtures stay independent of the user's editable gallery settings.
+const raw = { portfolioUrl: "", variant: "wall", style: "simple", language: "en",
+  showSectionLabels: false, maxVisitors: 9, contributionWeeks: 26, capture: {} };
 test("template binds to the new repository, never to the original owner's data", () => {
   const config = resolveConfig(raw, { GITHUB_REPOSITORY: "someone/someone" });
   assert.equal(config.owner, "someone"); assert.equal(config.link, "https://github.com/someone");
   assert.match(galleryBlock(config), /someone\/someone\/issues\/new/);
   assert.match(profileHtml(config, false), /github.com\/someone/);
   assert.equal(resolveConfig({ ...raw, variant: "pavilion" }, {}).style, "advanced");
+  const custom = resolveConfig({ ...raw, portfolioUrl: "https://example.com/", variant: "pavilion", language: "ko" }, { GITHUB_REPOSITORY: "someone/someone" });
+  assert.equal(custom.link, "https://example.com/"); assert.equal(custom.label, "example.com");
+  assert.equal(custom.owner, "someone"); assert.equal(custom.style, "advanced");
 });
 test("rejects unsafe site URLs, repository paths and invalid settings", () => {
   for (const url of ["http://example.com", "file:///tmp/a", "https://user:pass@example.com", "https://127.0.0.1", "https://localhost", "https://example.com:3000", "https://[::1]"])
