@@ -1,0 +1,10 @@
+{
+  "portfolioUrl": "",
+  "variant": "wall",
+  "style": "simple",
+  "language": "en",
+  "showSectionLabels": false,
+  "maxVisitors": 9,
+  "contributionWeeks": 26,
+  "capture": { "readySelector": "", "darkToggleSelector": "", "darkReadySelector": "" }
+}

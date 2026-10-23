@@ -1,0 +1,78 @@
+name: Build README gallery
+on:
+  workflow_dispatch:
+    inputs:
+      website:
+        description: "Public HTTPS website (blank: keep; none: profile card)"
+        type: string
+        default: ""
+      variant:
+        description: "Layout: A gallery, B island, C wall, D pavilion"
+        type: choice
+        options: [keep, wall, gallery, island, pavilion]
+        default: keep
+      style:
+        description: "Finish (D always uses advanced)"
+        type: choice
+        options: [keep, simple, advanced]
+        default: keep
+      language:
+        description: "Gallery labels and links"
+        type: choice
+        options: [keep, en, ko]
+        default: keep
+      render_all:
+        description: "Render all 7 designs for comparison (slower)"
+        type: boolean
+        default: false
+  issues:
+    types: [opened, edited, closed, reopened, deleted]
+  schedule:
+    - cron: "23 3 * * *"
+permissions:
+  contents: read
+concurrency:
+  group: readme-gallery
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[Gallery] ') || startsWith(github.event.changes.title.from, '[Gallery] ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      issues: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+          cache: npm
+      - name: Apply manual settings
+        env:
+          INPUT_WEBSITE: ${{ inputs.website }}
+          INPUT_VARIANT: ${{ inputs.variant }}
+          INPUT_STYLE: ${{ inputs.style }}
+          INPUT_LANGUAGE: ${{ inputs.language }}
+        run: npm run gallery:configure
+      - name: Collect public contributions and visitor choices
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npm run gallery:collect
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - name: Render gallery
+        env:
+          GALLERY_RENDER_ALL: ${{ inputs.render_all && '1' || '0' }}
+        run: npm run gallery:render
+      - run: npm run gallery:readme
+      - run: npm run gallery:validate
+      - name: Publish generated files
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REF_NAME: ${{ github.event.repository.default_branch }}
+        run: node scripts/gallery/publish.mjs

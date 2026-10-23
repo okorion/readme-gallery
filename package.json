@@ -1,0 +1,21 @@
+{
+  "name": "readme-gallery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A GitHub README exhibition with your website, contribution terrain and visitor artworks.",
+  "author": "okorion (https://github.com/okorion)",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test scripts/gallery/*.test.mjs",
+    "gallery:configure": "node scripts/gallery/configure.mjs",
+    "gallery:collect": "node scripts/gallery/collect.mjs",
+    "gallery:render": "node scripts/gallery/render.mjs",
+    "gallery:readme": "node scripts/gallery/readme.mjs",
+    "gallery:validate": "node scripts/gallery/validate.mjs",
+    "gallery:demo": "node scripts/gallery/demo.mjs && node scripts/gallery/render.mjs && node scripts/gallery/readme.mjs",
+    "gallery:build": "node scripts/gallery/collect.mjs && node scripts/gallery/render.mjs && node scripts/gallery/readme.mjs && node scripts/gallery/validate.mjs"
+  },
+  "devDependencies": { "playwright": "1.64.1", "three": "0.186.1" }
+}
