@@ -1,8 +1,8 @@
 {
-  "portfolioUrl": "",
-  "variant": "wall",
-  "style": "simple",
-  "language": "en",
+  "portfolioUrl": "https://okorion.github.io/",
+  "variant": "pavilion",
+  "style": "advanced",
+  "language": "ko",
   "showSectionLabels": false,
   "maxVisitors": 9,
   "contributionWeeks": 26,

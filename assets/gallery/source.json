@@ -1,6 +1,6 @@
 {
-  "mode": "profile-card",
-  "url": "https://github.com/okorion",
+  "mode": "website",
+  "url": "https://okorion.github.io/",
   "owner": "okorion",
   "viewport": {
     "width": 1184,
@@ -8,12 +8,12 @@
   },
   "loadedFonts": {
     "light": [
-      "Pretendard"
+      "Pretendard Variable"
     ],
     "dark": [
-      "Pretendard"
+      "Pretendard Variable"
     ]
   },
-  "sha256": "b8e1ea58419eadf7aa91890736e6fccb7d9bd29b6000b0fb2dbb07aab1b358f9",
-  "darkSha256": "151b332b63c9c2e4f7830a1af845cca4d825f010402619c8ef3f25bc206015a4"
+  "sha256": "8313e040920c0556205eb88f281ee9fc54cde82fc1ccb62f1abf71dcb73264e0",
+  "darkSha256": "2333c82b8c708a58509a6511c2d335a4fbfa83c8b8265bb59ba258bac11e0de9"
 }

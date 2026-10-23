@@ -1,14 +1,14 @@
 <!-- readme-gallery:start -->
-<a href="https://github.com/okorion">
+<a href="https://okorion.github.io/">
   <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/gallery/wall-mobile-dark.png" />
-    <source media="(max-width: 600px)" srcset="./assets/gallery/wall-mobile-light.png" />
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/gallery/wall-dark.png" />
-    <img alt="An exhibition of my profile, GitHub contributions and visitor artworks" src="./assets/gallery/wall-light.png" width="100%" />
+    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/gallery/pavilion-mobile-dark.png" />
+    <source media="(max-width: 600px)" srcset="./assets/gallery/pavilion-mobile-light.png" />
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/gallery/pavilion-dark.png" />
+    <img alt="프로필 화면, GitHub 활동 지형, 방문자 작품으로 구성한 전시관" src="./assets/gallery/pavilion-light.png" width="100%" />
   </picture>
 </a>
 
-<a href="https://github.com/okorion">Explore ↗</a> · <a href="https://github.com/okorion/readme-gallery/issues/new?template=gallery.yml">Leave an object +</a>
+<a href="https://okorion.github.io/">둘러보기 ↗</a> · <a href="https://github.com/okorion/readme-gallery/issues/new?template=gallery.yml">오브젝트 남기기 +</a>
 
 <sub>Created with <a href="https://github.com/okorion/readme-gallery">README Gallery</a> by <a href="https://github.com/okorion">okorion</a>.</sub>
 <!-- readme-gallery:end -->
