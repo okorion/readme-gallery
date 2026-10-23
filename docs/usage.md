@@ -171,3 +171,11 @@ licensed; preserve the copyright and license notice in redistributed software.
 Generated READMEs include a visible linked credit by default. Keeping it is
 appreciated, not an additional license condition. See [NOTICE.md](../NOTICE.md)
 and [third-party notices](../THIRD_PARTY_NOTICES.md).
+
+## Platform references
+
+- [GitHub profile README requirements](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)
+- [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+- [GitHub Actions usage and billing](https://docs.github.com/en/actions/concepts/billing-and-usage)
+- [Scheduled workflow behavior](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
+- [MIT license text](https://opensource.org/license/mit)

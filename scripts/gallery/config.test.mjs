@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile, mkdtemp, mkdir, writeFile, rm } from "node:fs/promises";
-import { join } from "node:path";
+import { join, resolve, relative, isAbsolute } from "node:path";
 import { tmpdir } from "node:os";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -55,5 +55,10 @@ test("first template run removes only the untouched guide; edited introductions 
     const edited = await readFile(join(directory, "README.md"), "utf8");
     assert.ok(edited.startsWith("# My biography")); assert.ok(edited.endsWith("My contact")); assert.ok(edited.includes(guide));
     run(); assert.equal(await readFile(join(directory, "README.md"), "utf8"), edited);
-  } finally { await rm(directory, { recursive: true, force: true }); }
+  } finally {
+    const parent = resolve(process.env.GALLERY_TEST_TMP || tmpdir());
+    const child = relative(parent, resolve(directory));
+    if (!child || child.startsWith("..") || isAbsolute(child)) throw new Error("Unsafe temporary cleanup path");
+    await rm(directory, { recursive: true, force: true });
+  }
 });
