@@ -1,4 +1,16 @@
 <!-- readme-gallery:start -->
+<a href="https://github.com/okorion">
+  <picture>
+    <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/gallery/wall-mobile-dark.png" />
+    <source media="(max-width: 600px)" srcset="./assets/gallery/wall-mobile-light.png" />
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/gallery/wall-dark.png" />
+    <img alt="An exhibition of my profile, GitHub contributions and visitor artworks" src="./assets/gallery/wall-light.png" width="100%" />
+  </picture>
+</a>
+
+<a href="https://github.com/okorion">Explore ↗</a> · <a href="https://github.com/okorion/readme-gallery/issues/new?template=gallery.yml">Leave an object +</a>
+
+<sub>Created with <a href="https://github.com/okorion/readme-gallery">README Gallery</a> by <a href="https://github.com/okorion">okorion</a>.</sub>
 <!-- readme-gallery:end -->
 
 # README Gallery

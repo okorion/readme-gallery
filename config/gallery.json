@@ -6,5 +6,9 @@
   "showSectionLabels": false,
   "maxVisitors": 9,
   "contributionWeeks": 26,
-  "capture": { "readySelector": "", "darkToggleSelector": "", "darkReadySelector": "" }
+  "capture": {
+    "readySelector": "",
+    "darkToggleSelector": "",
+    "darkReadySelector": ""
+  }
 }

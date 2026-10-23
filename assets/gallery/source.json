@@ -1,0 +1,19 @@
+{
+  "mode": "profile-card",
+  "url": "https://github.com/okorion",
+  "owner": "okorion",
+  "viewport": {
+    "width": 1184,
+    "height": 760
+  },
+  "loadedFonts": {
+    "light": [
+      "Pretendard"
+    ],
+    "dark": [
+      "Pretendard"
+    ]
+  },
+  "sha256": "b8e1ea58419eadf7aa91890736e6fccb7d9bd29b6000b0fb2dbb07aab1b358f9",
+  "darkSha256": "151b332b63c9c2e4f7830a1af845cca4d825f010402619c8ef3f25bc206015a4"
+}
